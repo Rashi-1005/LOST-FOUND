@@ -1,0 +1,183 @@
+/* Reset some default browser styles */
+* {
+    margin: 0; 
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f4f4f4;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Container for the main content */
+.container {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+}
+
+/* Hero Section */
+.hero {
+    background: url('your-image-url.jpg') no-repeat center center/cover;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    text-align: center;
+}
+
+.hero h1 {
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Header styles */
+header {
+    background: rgba(0, 123, 255, 0.9);
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Navigation styles */
+nav {
+    margin: 20px 0;
+}
+
+nav a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 10px;
+    border-radius: 5px;
+    transition: background 0.3s, transform 0.2s;
+}
+
+nav a:hover {
+    background: #0056b3;
+    transform: scale(1.05);
+}
+
+/* Form styles */
+form {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form input[type="file"] {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    transition: border-color 0.3s;
+}
+
+form input[type="text"]:focus,
+form input[type="email"]:focus,
+form input[type="password"]:focus {
+    border-color: #007bff;
+}
+
+form button {
+    background: linear-gradient(90deg, #007bff, #0056b3);
+    color: #fff;
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.2s;
+}
+
+form button:hover {
+    background: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Item listing styles */
+.item-list {
+    list-style: none;
+    padding: 0;
+}
+
+.item-list li {
+    background: #fff;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.item-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.item-list li a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+.item-list li a:hover {
+    text-decoration: underline;
+}
+
+/* Profile page styles */
+.profile-info {
+    background: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Alerts */
+.alert {
+    padding: 15px;
+    margin: 10px 0;
+    border-radius: 5px;
+}
+
+.alert.success {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.alert.error {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    .container {
+        width: 90%;
+    }
+
+    nav a {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .hero {
+        height: 300px;
+    }
+
+    .hero h1 {
+        font-size: 2.5em;
+    }
+}

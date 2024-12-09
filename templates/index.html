@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lost & Found</title>
+  
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500&family=Montserrat:wght@700&display=swap" rel="stylesheet">
+  
+  <!-- Font Awesome for icons -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Roboto', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Header with Yellow Background */
+    header {
+      position: relative;
+      background-color: #FFEB3B; /* Yellow background */
+      color: #003366; /* Deep blue text */
+      text-align: center;
+      padding: 100px 20px 150px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    /* Overlay Content */
+    .overlay {
+      position: relative; /* Removed absolute positioning */
+      padding: 20px;
+      text-align: center;
+    }
+
+    /* Logo Styles */
+    .logo {
+      max-width: 120px; /* Adjusted logo size */
+      height: auto; /* Maintain aspect ratio */
+      margin-bottom: 20px;
+    }
+
+    .overlay h1 {
+      font-size: 48px;
+      margin: 15px 0;
+      font-family: 'Montserrat', sans-serif;
+      color: #003366; /* Deep blue */
+    }
+
+    .overlay p {
+      font-size: 20px;
+      margin: 15px 0 30px;
+      color: #333; /* Slightly darker text for contrast */
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #FF6347; /* Tomato color */
+      color: white;
+      padding: 12px 25px;
+      border-radius: 50px;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 10px 5px;
+      transition: transform 0.3s ease, background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #E55347; /* Slightly darker tomato color */
+      transform: scale(1.05);
+    }
+
+    .button:active {
+      transform: scale(0.95);
+    }
+
+    /* Main Content Container */
+    .container {
+      max-width: 1200px;
+      margin: 60px auto;
+      padding: 0 20px;
+    }
+
+    .card {
+      background-color: #ffffff;
+      border-radius: 15px;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      margin-bottom: 30px;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.15);
+    }
+
+    .card h2 {
+      margin-top: 0;
+      font-size: 28px;
+      color: #003366; /* Deep Blue */
+      font-weight: 600;
+    }
+
+    .card p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #555; /* Dark Gray */
+    }
+
+    /* Featured Items Section */
+    .featured-items {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+
+    .featured-items .card {
+      width: 30%;
+      margin-bottom: 20px;
+    }
+
+    .featured-items .card img {
+      border-radius: 10px;
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+
+    .featured-items .card img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+      background-color: #f0f0f0;
+      padding: 60px 20px;
+      border-radius: 10px;
+      margin-bottom: 60px;
+    }
+
+    .testimonial-card {
+      display: flex;
+      align-items: center;
+      margin-bottom: 25px;
+      border-bottom: 1px solid #ddd;
+      padding-bottom: 20px;
+    }
+
+    .testimonial-card .user-img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+
+    .testimonial-card p {
+      font-size: 18px;
+      font-style: italic;
+    }
+
+    .testimonial-card .user-name {
+      font-weight: bold;
+      color: #FF6347; /* Tomato color */
+    }
+
+    /* Social Media and Footer */
+    .social-media {
+      text-align: center;
+      margin-top: 50px;
+    }
+
+    .social-media a {
+      color: #003366; /* Deep Blue */
+      font-size: 30px;
+      margin: 0 20px;
+      text-decoration: none;
+      transition: color 0.3s ease;
+    }
+
+    .social-media a:hover {
+      color: #FF6347; /* Tomato color on hover */
+    }
+
+    /* Mobile Responsiveness */
+    @media screen and (max-width: 768px) {
+      header {
+        padding: 80px 20px;
+      }
+
+      .overlay h1 {
+        font-size: 36px;
+      }
+
+      .overlay p {
+        font-size: 18px;
+      }
+
+      .featured-items .card {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .button {
+        width: 100%;
+        margin: 10px 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Header Section with Yellow Background -->
+  <header>
+    <div class="overlay">
+      <img src="{{ url_for('static', filename='uploads/lost.jpg') }}" alt="Lost & Found Logo" class="logo">
+      <h1>Lost & Found</h1>
+      <p>Your lost items are just a few clicks away from being found!</p>
+      <a href="{{ url_for('report', type='lost') }}" class="button">Report Lost Item</a>
+      <a href="{{ url_for('view_items', status='found') }}" class="button">Search for Found Items</a>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <div class="container">
+
+    <!-- Hero Section -->
+    <div class="card">
+      <h2>Discover Lost Items, Reunite with Your Belongings</h2>
+      <p>Our platform connects people who have lost items with those who have found them. Search our database or report your lost item to increase the chances of a successful reunion.</p>
+      <div>
+        <a href="{{ url_for('report', type='lost') }}" class="button">Report a Lost Item</a>
+        <a href="{{ url_for('view_items', status='found') }}" class="button">Search for Found Items</a>
+      </div>
+    </div>
+
+    <!-- Featured Lost and Found Items Section -->
+    <div class="featured-items">
+      <div class="card">
+        <img src="{{ url_for('static', filename='uploads/wallet.jpeg') }}" alt="Lost Wallet">
+        <h4>Lost Wallet</h4>
+        <p>Last seen at Central Park</p>
+      </div>
+      <div class="card">
+        <img src="{{ url_for('static', filename='uploads/key.jpeg') }}" alt="Found Keys">
+        <h4>Found Keys</h4>
+        <p>Found near the Library</p>
+      </div>
+      <div class="card">
+        <img src="{{ url_for('static', filename='uploads/backpack.jpeg') }}" alt="Lost Backpack">
+        <h4>Lost Backpack</h4>
+        <p>Last seen at the Train Station</p>
+      </div>
+    </div>
+
+    <!-- Testimonials Section -->
+    <div class="testimonials">
+      <h3>What Our Users Say</h3>
+      <div class="testimonial-card">
+        <img src="{{ url_for('static', filename='uploads/phone.jpeg') }}" alt="User" class="user-img">
+        <p>"I lost my phone last week, and I was able to find it within hours thanks to this platform!" - <span class="user-name">John</span></p>
+      </div>
+      <div class="testimonial-card">
+        <img src="{{ url_for('static', filename='uploads/wallet.jpeg') }}" alt="User" class="user-img">
+        <p>"This is an amazing service! I reunited with my lost wallet after months!" - <span class="user-name">Akshay</span></p>
+      </div>
+    </div>
+
+    <!-- Social Media Links -->
+    <div class="social-media">
+      <a href="#" class="fab fa-facebook-f"></a>
+      <a href="#" class="fab fa-twitter"></a>
+      <a href="#" class="fab fa-instagram"></a>
+    </div>
+  </div>
+
+</body>
+</html>

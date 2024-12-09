@@ -1,0 +1,41 @@
+{# Save as templates/report.html #}
+{% extends "base.html" %}
+{% block title %}Report {{ type|capitalize }} Item{% endblock %}
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="text-center">Report {{ type|capitalize }} Item</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST" enctype="multipart/form-data">
+                    <div class="mb-3">
+                        <label for="description" class="form-label">Description</label>
+                        <textarea class="form-control" id="description" name="description" rows="3" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="location" class="form-label">Location</label>
+                        <input type="text" class="form-control" id="location" name="location" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="contact_info" class="form-label">Contact Information</label>
+                        <input type="text" class="form-control" id="contact_info" name="contact_info" required>
+                    </div>
+                    {% if type == 'lost' %}
+                    <div class="mb-3">
+                        <label for="reward" class="form-label">Reward (optional)</label>
+                        <input type="text" class="form-control" id="reward" name="reward">
+                    </div>
+                    {% endif %}
+                    <div class="mb-3">
+                        <label for="image" class="form-label">Image (optional)</label>
+                        <input type="file" class="form-control" id="image" name="image" accept="image/*">
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100">Submit Report</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
